@@ -4,6 +4,7 @@
 
 #include "fmt.hpp"
 
+
 using namespace fmt;
 
 
@@ -37,5 +38,6 @@ int main()
 
 {
     basic_test();
+    std::cerr << "basic tests ok" << std::endl;
     return 0;
 }

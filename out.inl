@@ -9,14 +9,14 @@ namespace fmt {
 
 
 template <typename ... Types>
-void out(std::string pattern_str, Types ... args) {
-    std::cout << pattern(pattern_str).format(args...);
+void out(const std::string& pat, Types ... args) {
+    std::cout << pattern(pat).format(args...);
 }
 
 
 template <typename ... Types>
-void err(std::string pattern_str, Types ... args) {
-    std::cerr << pattern(pattern_str).format(args...);
+void err(const std::string& pat, Types ... args) {
+    std::cerr << pattern(pat).format(args...);
 }
 
 

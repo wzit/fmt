@@ -49,13 +49,13 @@ basic_pattern<Char>::basic_pattern(const Char(&pat)[N])
 
 template <typename Char>
 template <typename ... Types>
-std::basic_string<Char> basic_pattern<Char>::format(Types ... args) {
+std::basic_string<Char> basic_pattern<Char>::format(Types ... args) const {
     return _format(args...);
 }
 
 template <typename Char>
 template <typename Type, typename ... Types>
-std::basic_string<Char> basic_pattern<Char>::_format(Type arg, Types ... args) {
+std::basic_string<Char> basic_pattern<Char>::_format(Type arg, Types ... args) const {
     std::basic_string<Char> result;
     size_t index = chunks.size() - sizeof...(args) - 2;
     result += chunks[index];
@@ -66,7 +66,7 @@ std::basic_string<Char> basic_pattern<Char>::_format(Type arg, Types ... args) {
 
 
 template <typename Char>
-std::basic_string<Char> basic_pattern<Char>::_format() {
+std::basic_string<Char> basic_pattern<Char>::_format() const {
     return chunks.back();
 }
 

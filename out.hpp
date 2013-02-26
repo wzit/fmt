@@ -15,11 +15,11 @@ namespace fmt {
  */
 
 template <typename Char, typename ... Types>
-void out(std::basic_string<Char> pattern, Types ... args);
+void out(const std::string& pat, Types ... args);
 
 
 template <typename Char, typename ... Types>
-void err(std::basic_string<Char> pattern, Types ... args);
+void err(const std::string pat, Types ... args);
 
 
 } // namespace fmt

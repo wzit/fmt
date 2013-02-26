@@ -28,14 +28,14 @@ public:
 
     /* Given arguments, produce the string */
     template <typename ... Types>
-    std::basic_string<Char> format(Types ... args);
+    std::basic_string<Char> format(Types ... args) const;
 
 private:
 
     template <typename Type, typename ... Types>
-    std::basic_string<Char> _format(Type arg, Types ... args);
+    std::basic_string<Char> _format(Type arg, Types ... args) const;
 
-    std::basic_string<Char> _format();
+    std::basic_string<Char> _format() const;
 
     std::vector<std::basic_string<Char>> chunks;
 

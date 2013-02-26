@@ -12,6 +12,8 @@ TODO
 + Explicit arguments numeration.
 + Format strings.
 + Compile-time checking.
++ Alternative custom class format implementing.
++ Correct "{{" processing.
 
 Tested with
 -----------
