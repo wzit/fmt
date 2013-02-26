@@ -15,6 +15,7 @@ void assert_equals(TypeA a, TypeB b) {
     }
 }
 
+
 void basic_test() {
     auto hello_pat = pattern("Hello, {}!");
 
@@ -30,6 +31,7 @@ void basic_test() {
     assert_equals(three_pat.format(1, 2, 3), "1 + 2 = 3");
     assert_equals(three_pat.format("x", 8, 51), "x + 8 = 51");
 }
+
 
 int main()
 

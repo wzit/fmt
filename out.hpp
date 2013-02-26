@@ -11,10 +11,15 @@ namespace fmt {
 
 
 /*
- * Printf analogue with fancy formatting.
+ * Printf analogues with fancy formatting.
  */
+
 template <typename Char, typename ... Types>
 void out(std::basic_string<Char> pattern, Types ... args);
+
+
+template <typename Char, typename ... Types>
+void err(std::basic_string<Char> pattern, Types ... args);
 
 
 } // namespace fmt
