@@ -1,4 +1,8 @@
 #pragma once
 
+/*
+ * Main header.
+ */
+
 #include "pattern.hpp"
-#include "print.hpp"
+#include "out.hpp"

@@ -1,3 +1,7 @@
+/*
+ * A couple of tests.
+ */
+
 #include "fmt.hpp"
 
 using namespace fmt;
@@ -12,16 +16,16 @@ void assert_equals(TypeA a, TypeB b) {
 }
 
 void basic_test() {
-    auto hello_pat = Pat("Hello, {}!");
+    auto hello_pat = pattern("Hello, {}!");
 
     assert_equals(hello_pat.format("world"), "Hello, world!");
     assert_equals(hello_pat.format(42), "Hello, 42!");
 
-    auto empty_pat = Pat("No arguments please!");
+    auto empty_pat = pattern("No arguments please!");
 
     assert_equals(empty_pat.format(), "No arguments please!");
 
-    auto three_pat = Pat("{} + {} = {}");
+    auto three_pat = pattern("{} + {} = {}");
 
     assert_equals(three_pat.format(1, 2, 3), "1 + 2 = 3");
     assert_equals(three_pat.format("x", 8, 51), "x + 8 = 51");
