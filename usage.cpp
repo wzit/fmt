@@ -7,10 +7,10 @@
 
 
 int main() {
-    /* Nice output */
+    /* Nice output. */
     fmt::out("Roses are {}\nThe answer is {}\n", "green", 41);
 
-    /* Separate formatting from output */
+    /* Separate formatting from output. */
     fmt::pattern pat = "{} equals {}";
     std::cout << pat.format(4, "five") << std::endl;
 
