@@ -6,4 +6,4 @@ add_definitions(-std=c++11)
 
 add_executable(test test.cpp)
 add_executable(usage usage.cpp)
-add_executable(advanced_usage advanced_usage.cpp)
+add_executable(usage_custom usage_custom.cpp)

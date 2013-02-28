@@ -4,7 +4,8 @@ Makefile
 cmake_install.cmake
 install_manifest.txt
 fmt.sublime-workspace
+fmt.sublime-project
 
 test
 usage
-advanced_usage
+usage_custom

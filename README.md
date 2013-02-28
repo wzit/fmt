@@ -10,12 +10,11 @@ TODO
 ----
 
 + Explicit arguments numeration.
-+ Format strings.
++ Format parameters.
 + Compile-time checking.
 + Alternative custom class format implementing.
-+ Correct "{{" processing.
 
 Tested with
 -----------
 
-+ clang 3.0
++ clang 3.0 --std=c++11

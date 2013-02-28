@@ -84,4 +84,19 @@ std::basic_string<Char> basic_pattern<Char>::_format() const {
     return chunks.back();
 }
 
+
+template <typename Char>
+template <typename ... Types>
+void basic_pattern<Char>::out(Types ... args) const {
+    std::cout << format(args...);
+}
+
+
+template <typename Char>
+template <typename ... Types>
+void basic_pattern<Char>::err(Types ... args) const {
+    std::cerr << format(args...);
+}
+
+
 } // namespace fmt

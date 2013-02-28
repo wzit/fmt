@@ -11,7 +11,7 @@ using namespace fmt;
 template <typename TypeA, typename TypeB>
 void assert_equals(TypeA a, TypeB b) {
     if (a != b) {
-        std::cerr << a << " != " << b << std::endl;
+        err("{} != {}\n", a, b);
         exit(1);
     }
 }
@@ -38,6 +38,6 @@ int main()
 
 {
     basic_test();
-    std::cerr << "basic tests ok" << std::endl;
+    out("basic tests ok\n");
     return 0;
 }

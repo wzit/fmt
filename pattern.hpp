@@ -26,9 +26,17 @@ public:
     template <int N>
     basic_pattern(const Char(&pat)[N]);
 
-    /* Given arguments, produce the string */
+    /* Given arguments, return the string */
     template <typename ... Types>
     std::basic_string<Char> format(Types ... args) const;
+
+    /* Output the string to stdout */
+    template <typename ... Types>
+    void out(Types ... args) const;
+
+    /* Output the string to stderr */
+    template <typename ... Types>
+    void err(Types ... args) const;
 
 private:
 
