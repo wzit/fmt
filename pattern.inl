@@ -11,12 +11,34 @@ namespace fmt {
 
 
 template <typename Char>
-basic_pattern<Char>::basic_pattern(const std::basic_string<Char>& pat) {
+basic_pattern<Char>::basic_pattern(const static_string& pat) {
+    init(pat);
+}
 
+
+template <typename Char>
+template <int N>
+basic_pattern<Char>::basic_pattern(const Char(&pat)[N]) {
+    init(pat);
+}
+
+
+template <typename Char>
+template <typename ... Types>
+std::basic_string<Char> basic_pattern<Char>::format(Types ... args) const {
+    if(chunks.size() != sizeof...(args) + 1) {
+        throw std::logic_error("Wrong argument count");
+    }
+    return _format(args...);
+}
+
+
+template <typename Char>
+void basic_pattern<Char>::init(const static_string& pat) {
     std::string chunk;
-    for(auto iter = pat.begin(); iter != pat.end(); ++iter) {
-        if(*iter == '{') {
-            if(iter + 1 != pat.end() && *(iter + 1) == '{') {
+    for(unsigned iter = 0; iter < pat.length(); ++iter) {
+        if(pat[iter] == '{') {
+            if(iter + 1 < pat.length() && pat[iter + 1] == '{') {
                 chunk.push_back('{');
                 ++iter;                     // skip second "{"
             }
@@ -51,21 +73,6 @@ basic_pattern<Char>::basic_pattern(const std::basic_string<Char>& pat) {
     chunk.clear();
 }
 
-template <typename Char>
-template <int N>
-basic_pattern<Char>::basic_pattern(const Char(&pat)[N])
-    : basic_pattern(std::basic_string<Char>(pat))
-{}
-
-
-template <typename Char>
-template <typename ... Types>
-std::basic_string<Char> basic_pattern<Char>::format(Types ... args) const {
-    if(chunks.size() != sizeof...(args) + 1) {
-        throw std::logic_error("Wrong argument count");
-    }
-    return _format(args...);
-}
 
 template <typename Char>
 template <typename Type, typename ... Types>

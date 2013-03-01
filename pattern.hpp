@@ -7,6 +7,8 @@
 #include <string>
 #include <vector>
 
+#include "static_string.hpp"
+
 
 namespace fmt {
 
@@ -20,7 +22,7 @@ class basic_pattern {
 public:
 
     /* Constructs pattern from std string */
-    basic_pattern(const std::basic_string<Char>& pat);
+    basic_pattern(const static_string& pat);
 
     /* Support implicit construction from literals */
     template <int N>
@@ -39,6 +41,9 @@ public:
     void err(Types ... args) const;
 
 private:
+
+    /* GCC 4.6 doesn't support calling ctor from ctor */
+    void init(const static_string& pat);
 
     template <typename Type, typename ... Types>
     std::basic_string<Char> _format(Type arg, Types ... args) const;
