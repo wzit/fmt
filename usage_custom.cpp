@@ -4,7 +4,7 @@
 
 
 /*
- *Class for tests.
+ * Class for tests.
  */
 struct my_complex {
     int real;

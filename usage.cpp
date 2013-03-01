@@ -1,5 +1,5 @@
 /*
- * A brief instoduction to library usage.
+ * A brief introduction to library usage.
  */
 
 
