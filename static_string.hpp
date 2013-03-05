@@ -14,6 +14,12 @@ public:
     template <unsigned N>
     constexpr static_string(const char (&strn)[N]);
 
+    const char* c_str();
+
+    constexpr unsigned length();
+
+    constexpr char operator[](unsigned index);
+
 private:
 
     unsigned n;

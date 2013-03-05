@@ -17,4 +17,4 @@ TODO
 Tested with
 -----------
 
-+ clang 3.0 --std=c++11
++ g++ 4.6.3 -std=c++0x

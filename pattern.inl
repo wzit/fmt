@@ -17,8 +17,8 @@ basic_pattern<Char>::basic_pattern(const std::basic_string<Char>& pat) {
 
 
 template <typename Char>
-template <int N>
-basic_pattern<Char>::basic_pattern(const Char(&pat)[N]) {
+template <unsigned N>
+basic_pattern<Char>::basic_pattern(const Char (&pat)[N]) {
     init(pat);
 }
 

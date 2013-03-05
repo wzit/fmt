@@ -7,6 +7,8 @@
 #include <string>
 #include <vector>
 
+#include "static_string.hpp"
+
 
 namespace fmt {
 
@@ -23,8 +25,8 @@ public:
     basic_pattern(const std::basic_string<Char>& pat);
 
     /* Support implicit construction from literals */
-    template <int N>
-    basic_pattern(const Char(&pat)[N]);
+    template <unsigned N>
+    basic_pattern(const Char (&pat)[N]);
 
     /* Given arguments, return the string */
     template <typename ... Types>
