@@ -11,7 +11,7 @@ namespace fmt {
 
 
 template <typename Char>
-basic_pattern<Char>::basic_pattern(const static_string& pat) {
+basic_pattern<Char>::basic_pattern(const std::basic_string<Char>& pat) {
     init(pat);
 }
 
@@ -34,11 +34,11 @@ std::basic_string<Char> basic_pattern<Char>::format(Types ... args) const {
 
 
 template <typename Char>
-void basic_pattern<Char>::init(const static_string& pat) {
+void basic_pattern<Char>::init(const std::basic_string<Char>& pat) {
     std::string chunk;
-    for(unsigned iter = 0; iter < pat.length(); ++iter) {
-        if(pat[iter] == '{') {
-            if(iter + 1 < pat.length() && pat[iter + 1] == '{') {
+    for(auto iter = pat.begin(); iter != pat.end(); ++iter) {
+        if(*iter == '{') {
+            if(iter + 1 != pat.end() && *(iter + 1) == '{') {
                 chunk.push_back('{');
                 ++iter;                     // skip second "{"
             }
