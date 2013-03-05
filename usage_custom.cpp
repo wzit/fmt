@@ -18,7 +18,7 @@ struct my_complex {
 
 namespace fmt {
 template <typename Char>
-std::basic_string<Char> format(const my_complex& arg) {
+std::basic_string<Char> format(const my_complex& arg, const field<Char>& opt) {
     return std::to_string(arg.real)
            + " + "
            + std::to_string(arg.imag)

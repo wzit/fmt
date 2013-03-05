@@ -7,6 +7,8 @@
 #include <string>
 #include <vector>
 
+#include "field.hpp"
+
 
 namespace fmt {
 
@@ -46,6 +48,8 @@ private:
     std::basic_string<Char> _format() const;
 
     std::vector<std::basic_string<Char>> chunks;
+
+    std::vector<field<Char>> fields;
 
 };
 

@@ -28,7 +28,9 @@ basic_pattern<Char>::basic_pattern(const std::basic_string<Char>& pat) {
                     throw std::logic_error("No matching '}'");
                 }
                 else {
-                    std::basic_string<Char> field(field_start, iter);
+                    std::basic_string<Char> field_str(field_start, iter);
+                    field<Char> field(field_str);
+                    fields.push_back(field);
                     chunks.push_back(chunk);
                     chunk.clear();
                 }
@@ -61,7 +63,7 @@ basic_pattern<Char>::basic_pattern(const Char(&pat)[N])
 template <typename Char>
 template <typename ... Types>
 std::basic_string<Char> basic_pattern<Char>::format(Types ... args) const {
-    if(chunks.size() != sizeof...(args) + 1) {
+    if(fields.size() != sizeof...(args)) {
         throw std::logic_error("Wrong argument count");
     }
     return _format(args...);
@@ -73,7 +75,7 @@ std::basic_string<Char> basic_pattern<Char>::_format(Type arg, Types ... args) c
     std::basic_string<Char> result;
     size_t index = chunks.size() - sizeof...(args) - 2;
     result += chunks[index];
-    result += fmt::format<Char>(arg);
+    result += fmt::format<Char>(arg, fields[index]);
     result += _format(args...);
     return result;
 }

@@ -10,7 +10,7 @@ namespace fmt {
  * Default behaviour for formatting function.
  */
 template <typename Char, typename Type>
-std::basic_string<Char> format(Type arg) {
+std::basic_string<Char> format(Type arg, const field<Char>& opt) {
     return arg;
 }
 
@@ -19,7 +19,7 @@ std::basic_string<Char> format(Type arg) {
  * Integer formatting.
  */
 template <typename Char>
-std::basic_string<Char> format(int arg) {
+std::basic_string<Char> format(int arg, const field<Char>& opt) {
     return std::to_string(arg);
 }
 
@@ -28,7 +28,7 @@ std::basic_string<Char> format(int arg) {
  * Unsigned formatting.
  */
 template <typename Char>
-std::basic_string<Char> format(unsigned arg) {
+std::basic_string<Char> format(unsigned arg, const field<Char>& opt) {
     return std::to_string(arg);
 }
 
@@ -37,7 +37,7 @@ std::basic_string<Char> format(unsigned arg) {
  * Float formatting.
  */
 template <typename Char>
-std::basic_string<Char> format(float arg) {
+std::basic_string<Char> format(float arg, const field<Char>& opt) {
     return std::to_string(arg);
 }
 
@@ -46,7 +46,7 @@ std::basic_string<Char> format(float arg) {
  * Double formatting.
  */
 template <typename Char>
-std::basic_string<Char> format(double arg) {
+std::basic_string<Char> format(double arg, const field<Char>& opt) {
     return std::to_string(arg);
 }
 
