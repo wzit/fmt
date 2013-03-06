@@ -12,12 +12,19 @@
 namespace fmt {
 
 
+/*
+ * Static wrapper for pattern class.
+ */
 class static_pattern {
 
 public:
 
     /* Save string and check its validity */
-    constexpr static_pattern(static_string pat);
+    template <unsigned N>
+    constexpr static_pattern(const char (&strn)[N]);
+
+    /* Problems here -- no destructors for literal types */
+    // ~static_pattern();
 
     /* Given arguments, return the string */
     template <typename ... Types>
@@ -42,10 +49,18 @@ private:
 namespace fmt {
 
 
-constexpr static_pattern::static_pattern(static_string strn)
+template <unsigned N>
+constexpr static_pattern::static_pattern(const char (&strn)[N])
     : str(strn), check(check_pattern(strn)), pat(nullptr) {
 
 }
+
+
+// static_pattern::~static_pattern() {
+//     if (pat != nullptr) {
+//         delete pat;
+//     }
+// }
 
 
 template <typename ... Types>

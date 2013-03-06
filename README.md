@@ -5,6 +5,7 @@ Usage
 -----
 
 See usage*.cpp for usage examples.
+Check test_static.cpp for compile-time checking.
 
 TODO
 ----
